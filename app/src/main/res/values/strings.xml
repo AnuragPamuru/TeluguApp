@@ -3,6 +3,9 @@
     <string name="settings">Settings</string>
     <string name="title_activity_settings">Settings</string>
 
+    <!-- Settings Titles -->
+    <string name="toggle_description">Turn the lights out!</string>
+
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
