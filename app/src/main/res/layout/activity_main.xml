@@ -5,13 +5,17 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorAccent"
         tools:context=".MainActivity">
     <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="@drawable/ic_settings"
+            android:layout_width="75dp"
+            android:layout_height="75dp" app:srcCompat="@drawable/ic_settings"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
             android:id="@+id/imageButton"
             app:layout_constraintBottom_toBottomOf="parent"
             android:hapticFeedbackEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
-            style="@style/Widget.AppCompat.ImageButton" android:contentDescription="@string/settings"/>
+            style="@style/Widget.AppCompat.ImageButton" android:contentDescription="@string/settings"
+            android:layout_marginBottom="16dp" android:layout_marginEnd="36dp" android:layout_marginRight="36dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
