@@ -13,10 +13,14 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+
+        //set up the toggle dark mode button
         val toggle = findViewById<ImageButton>(R.id.toggleButton)
         toggle.setImageResource(R.drawable.ic_invert_b)
         toggle.setBackgroundColor(Color.WHITE)
         toggle.setOnClickListener{toggleModeW()}
+
+        //set up notifications toggle
     }
 
     fun toggleModeW(){
