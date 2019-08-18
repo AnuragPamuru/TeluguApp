@@ -3,6 +3,7 @@ package com.example.teluguapp
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -22,12 +23,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         createNotificationChannel()
 
+        //set notification intent
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        //build notification
         var builder = NotificationCompat.Builder(this, "com.example.teluguapp")
             .setSmallIcon(R.drawable.ic_small_icon)
-            .setContentTitle("Garlands")
+            .setContentTitle("Jasmine")
             .setContentText("Come for a lesson!")
             .setColor(resources.getColor(R.color.colorPrimary))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setAutoCancel(true)
+            .setContentIntent(pendingIntent)
 
         with(NotificationManagerCompat.from(this)) {
             // notificationId is a unique int for each notification that you must define
@@ -55,6 +63,7 @@ class MainActivity : AppCompatActivity() {
             val channel = NotificationChannel("com.example.teluguapp", name, importance).apply {
                 description = descriptionText
             }
+
             // Register the channel with the system
             val notificationManager: NotificationManager =
                 getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -63,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             //set channel settings
             channel.enableLights(true)
             channel.lightColor = Color.GREEN
-
+            channel.enableVibration(true)
         }
     }
 }
