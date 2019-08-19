@@ -10,13 +10,24 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
+
+    lateinit var mFrame: FrameLayout
+    lateinit var mNavBar: BottomNavigationView
+    lateinit var settingsScreen: SettingsFragment
+    lateinit var homeScreen: HomeFragment
+    lateinit var searchScreen: SearchFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,14 +54,43 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        val settings = findViewById<ImageButton>(R.id.imageButton)
-        settings.setOnClickListener{openSettings()}
-        settings.setBackgroundColor(Color.WHITE)
+        //initialize the navigation bar
+        mFrame = findViewById<FrameLayout>(R.id.main_frame)
+        mNavBar = findViewById<BottomNavigationView>(R.id.main_nav)
+
+        settingsScreen = SettingsFragment()
+        homeScreen = HomeFragment()
+        searchScreen = SearchFragment()
+
+        mNavBar.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+
     }
 
-    fun openSettings(){
-        val intent = Intent(this,SettingsActivity::class.java)
-        startActivity(intent)
+
+    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when (item.itemId) {
+            R.id.home_menu_item -> {
+                return@OnNavigationItemSelectedListener true
+                openFragment(homeScreen)
+            }
+            R.id.settings_menu_item -> {
+                return@OnNavigationItemSelectedListener true
+                openFragment(settingsScreen)
+            }
+            R.id.search_menu_item -> {
+                return@OnNavigationItemSelectedListener true
+                openFragment(searchScreen)
+            }
+        }
+        false
+    }
+
+    private fun openFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.main_frame, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
     private fun createNotificationChannel() {

@@ -7,23 +7,25 @@
         android:layout_height="match_parent"
         android:background="@color/colorAccent"
         tools:context=".MainActivity">
-    <ImageButton
-            android:layout_width="75dp"
-            android:layout_height="75dp" app:srcCompat="@drawable/ic_settings"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            android:id="@+id/imageButton"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:hapticFeedbackEnabled="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            style="@style/Widget.AppCompat.ImageButton" android:contentDescription="@string/settings"
-            android:layout_marginBottom="420dp" android:layout_marginEnd="48dp" android:layout_marginRight="48dp"/>
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="match_parent"
-            android:layout_height="65dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="4dp"
-            app:menu="@menu/menu_items"/>
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            app:itemIconTint="@color/colorPrimary"
+            app:itemTextColor="@color/colorPrimary"
+            app:menu="@menu/menu_items"
+            app:layout_constraintBottom_toBottomOf="parent" tools:layout_editor_absoluteX="8dp"
+            android:layout_alignParentLeft="true" android:id="@+id/main_nav"/>
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="56dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_above="@id/main_nav"
+            android:id="@+id/main_frame" >
+
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
