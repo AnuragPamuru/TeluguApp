@@ -1,6 +1,5 @@
 package com.example.teluguapp
 
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -11,24 +10,21 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
-import android.widget.ImageButton
-import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
 
-    lateinit var mFrame: FrameLayout
-    lateinit var mNavBar: BottomNavigationView
-    lateinit var settingsScreen: SettingsFragment
-    lateinit var homeScreen: HomeFragment
-    lateinit var searchScreen: SearchFragment
+    private lateinit var mFrame: FrameLayout
+    private lateinit var mNavBar: BottomNavigationView
+    private lateinit var settingsScreen: SettingsFragment
+    private lateinit var homeScreen: HomeFragment
+    private lateinit var searchScreen: SearchFragment
 
+    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,11 +35,10 @@ class MainActivity : AppCompatActivity() {
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         //build notification
-        var builder = NotificationCompat.Builder(this, "com.example.teluguapp")
+        val builder = NotificationCompat.Builder(this, "com.example.teluguapp")
             .setSmallIcon(R.drawable.ic_small_icon)
             .setContentTitle("Jasmine")
             .setContentText("Come for a lesson!")
-            .setColor(resources.getColor(R.color.colorPrimary))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
@@ -55,32 +50,36 @@ class MainActivity : AppCompatActivity() {
 
 
         //initialize the navigation bar
-        mFrame = findViewById<FrameLayout>(R.id.main_frame)
-        mNavBar = findViewById<BottomNavigationView>(R.id.main_nav)
+        mFrame = findViewById(R.id.main_frame)
+        mNavBar = findViewById(R.id.main_nav)
 
         settingsScreen = SettingsFragment()
         homeScreen = HomeFragment()
         searchScreen = SearchFragment()
 
         mNavBar.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-
+        openFragment(homeScreen)
 
     }
 
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+
         when (item.itemId) {
             R.id.home_menu_item -> {
-                return@OnNavigationItemSelectedListener true
+                //val homeScreen = HomeFragment.newInstance("Lol","Cool")
                 openFragment(homeScreen)
+                return@OnNavigationItemSelectedListener true
             }
             R.id.settings_menu_item -> {
-                return@OnNavigationItemSelectedListener true
+                //val settingsScreen = SettingsFragment.newInstance("Dude","Same")
                 openFragment(settingsScreen)
+                return@OnNavigationItemSelectedListener true
             }
             R.id.search_menu_item -> {
-                return@OnNavigationItemSelectedListener true
+                //val searchScreen = SearchFragment.newInstance("Bruh", "Bruh")
                 openFragment(searchScreen)
+                return@OnNavigationItemSelectedListener true
             }
         }
         false
