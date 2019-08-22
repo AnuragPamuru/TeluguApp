@@ -1,8 +1,10 @@
 package com.example.teluguapp
 
+import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -14,6 +16,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,30 +27,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var homeScreen: HomeFragment
     private lateinit var searchScreen: SearchFragment
 
-    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //notification setup
         createNotificationChannel()
-
-        //set notification intent
-        val intent = Intent(applicationContext, MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-
-        //build notification
-        val builder = NotificationCompat.Builder(this, "com.example.teluguapp")
-            .setSmallIcon(R.drawable.ic_small_icon)
-            .setContentTitle("Jasmine")
-            .setContentText("Come for a lesson!")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setAutoCancel(true)
-            .setContentIntent(pendingIntent)
-
-        with(NotificationManagerCompat.from(this)) {
-            // notificationId is a unique int for each notification that you must define
-            notify(0, builder.build())
-        }
-
+        buildNotification()
 
         //initialize the navigation bar
         mFrame = findViewById(R.id.main_frame)
@@ -60,8 +46,9 @@ class MainActivity : AppCompatActivity() {
         mNavBar.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         openFragment(homeScreen)
 
-    }
+        val calendar = Calendar.getInstance()
 
+    }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
 
@@ -112,6 +99,26 @@ class MainActivity : AppCompatActivity() {
             channel.enableLights(true)
             channel.lightColor = Color.GREEN
             channel.enableVibration(true)
+        }
+    }
+
+    fun buildNotification(){
+        //set notification intent
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        //build notification
+        val builder = NotificationCompat.Builder(this, "com.example.teluguapp")
+            .setSmallIcon(R.drawable.ic_small_icon)
+            .setContentTitle("Come for a lesson!")
+            .setContentText("Your next lesson is" + " Vowels")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setAutoCancel(true)
+            .setContentIntent(pendingIntent)
+
+        with(NotificationManagerCompat.from(this)) {
+            // notificationId is a unique int for each notification that you must define
+            notify(0, builder.build())
         }
     }
 }

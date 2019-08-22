@@ -5,11 +5,4 @@
              android:layout_height="match_parent"
              tools:context=".SearchFragment">
 
-    <ImageView
-            android:src="@drawable/ic_search"
-            android:layout_width="212dp"
-            android:layout_height="191dp"
-            android:id="@+id/imageView"
-            android:gravity="center_vertical"/>
-
 </FrameLayout>
