@@ -45,9 +45,6 @@ class MainActivity : AppCompatActivity() {
 
         mNavBar.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         openFragment(homeScreen)
-
-        val calendar = Calendar.getInstance()
-
     }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -102,7 +99,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun buildNotification(){
+    private fun buildNotification(){
         //set notification intent
         val intent = Intent(applicationContext, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
@@ -111,7 +108,7 @@ class MainActivity : AppCompatActivity() {
         val builder = NotificationCompat.Builder(this, "com.example.teluguapp")
             .setSmallIcon(R.drawable.ic_small_icon)
             .setContentTitle("Come for a lesson!")
-            .setContentText("Your next lesson is" + " Vowels")
+            .setContentText("Your next lesson is Vowels")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)

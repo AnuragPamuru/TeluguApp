@@ -4,11 +4,86 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context=".HomeFragment">
-
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/title_activity_home"
-            android:gravity="center_horizontal"/>
-
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:gravity="center"
+            android:layout_height="match_parent" android:id="@+id/scroll_area">
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="56dp"
+                android:gravity="center"
+                android:id="@+id/lessons_wrapper" android:orientation="vertical">
+            <Button
+                    android:id="@+id/push_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/round_buttons"
+                    android:padding="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+            />
+            <Button
+                    android:id="@+id/push_button1"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/round_buttons"
+                    android:padding="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+            />
+            <Button
+                    android:id="@+id/push_button2"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/round_buttons"
+                    android:padding="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+            />
+            <Button
+                    android:id="@+id/push_button3"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/round_buttons"
+                    android:padding="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+            />
+            <Button
+                    android:id="@+id/push_button4"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/round_buttons"
+                    android:padding="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+            />
+            <Button
+                    android:id="@+id/push_button5"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/round_buttons"
+                    android:padding="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+            />
+            <Button
+                    android:id="@+id/push_button6"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/round_buttons"
+                    android:padding="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+            />
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
