@@ -1,10 +1,8 @@
 package com.example.teluguapp
 
-import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
-import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -16,7 +14,6 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,17 +48,17 @@ class MainActivity : AppCompatActivity() {
 
         when (item.itemId) {
             R.id.home_menu_item -> {
-                //val homeScreen = HomeFragment.newInstance("Lol","Cool")
+                //add homeScreen
                 openFragment(homeScreen)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.settings_menu_item -> {
-                //val settingsScreen = SettingsFragment.newInstance("Dude","Same")
+                //add settingsScreen
                 openFragment(settingsScreen)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.search_menu_item -> {
-                //val searchScreen = SearchFragment.newInstance("Bruh", "Bruh")
+                //add searchScreen
                 openFragment(searchScreen)
                 return@OnNavigationItemSelectedListener true
             }
