@@ -3,9 +3,11 @@ package com.example.teluguapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.LinearLayout
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import androidx.constraintlayout.widget.ConstraintLayout
+
 
 
 class LessonActivity : AppCompatActivity() {
@@ -23,34 +25,38 @@ class LessonActivity : AppCompatActivity() {
         val setUpData = resources.openRawResource(setUpFile)
         val reader = BufferedReader(InputStreamReader(setUpData, "Unicode"))
 
-//        for(i in reader.lineSequence()){
-//            //use each line to set up words
-//
-//            //read the letters, meaning, and sound path
-//            val data = i.split("\\t")
-//
-//            val translations = data[1].split(",")
-//            val word = Word(data[0], translations, data[2].toInt(),this)
-//
-//            val myButton = Button(this)
-//            myButton.text = word.word
-//            myButton.setOnClickListener { word.playSound() }
-//            val ll = findViewById<ConstraintLayout>(R.id.activity_lesson)
-//            val lp = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT)
-//            ll.addView(myButton, lp)
-//        }
+        val buttons = mutableListOf<Button>()
 
-        val data = reader.readLine().split("\\t")
+        //use each line to set up words
+        for(i in reader.lineSequence()){
 
-        val translations = data[1].split(",")
-        val word = Word(data[0], translations, data[2].toInt(),this)
+            //read the letters, meaning, and sound path
+            val data = i.split(" ")
+            val translations = mutableListOf<String>()
 
-        val myButton = Button(this)
-        myButton.text = word.word
-        myButton.setOnClickListener { word.playSound() }
-        val ll = findViewById<ConstraintLayout>(R.id.activity_lesson)
-        val lp = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT)
-        ll.addView(myButton, lp)
+            if(data[1].contains(",")){
+                for (j in data[1].split(",")){
+                    translations.add(j)
+                }
+            } else{
+                translations.add(data[1])
+            }
+
+            val word = Word(data[0], translations, resources.getIdentifier(data[2], "raw", packageName),this)
+
+
+            buttons.add(Button(this))
+
+            buttons[buttons.size - 1].text = word.word
+            buttons[buttons.size - 1].setOnClickListener { word.playSound() }
+            val ll = findViewById<LinearLayout>(R.id.words_wrapper)
+            val lp = LinearLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT,ConstraintLayout.LayoutParams.WRAP_CONTENT)
+            lp.topMargin = 50
+            lp.bottomMargin = 50
+            ll.addView(buttons[buttons.size - 1], lp)
+        }
+
+
         //testing - feed those words into buttons
 
 
