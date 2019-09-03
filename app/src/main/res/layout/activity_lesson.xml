@@ -4,30 +4,4 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LessonActivity" android:id="@+id/activity_lesson">
-    <Button
-            android:text="@string/vowela"
-            android:layout_width="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            android:textSize="60sp"
-            android:onClick="playSound"
-            android:id="@+id/a" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="116dp" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.605" app:layout_constraintStart_toEndOf="@+id/aa"
-            android:layout_marginStart="8dp" android:layout_marginLeft="8dp"
-            app:layout_constraintHorizontal_bias="0.34"/>
-    <Button
-            android:text="@string/vowelaa"
-            android:layout_width="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            android:textSize="60sp"
-            android:onClick="playSound"
-            android:id="@+id/aa"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="80dp" android:layout_marginStart="80dp" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.505"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        tools:context=".LessonActivity" android:id="@+id/activity_lesson"/>
