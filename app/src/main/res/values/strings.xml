@@ -34,4 +34,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="vowela">అ</string>
     <string name="vowelaa">ఆ</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

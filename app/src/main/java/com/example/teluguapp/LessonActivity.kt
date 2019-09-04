@@ -6,8 +6,6 @@ import android.widget.Button
 import android.widget.LinearLayout
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import androidx.constraintlayout.widget.ConstraintLayout
-
 
 
 class LessonActivity : AppCompatActivity() {
@@ -17,10 +15,10 @@ class LessonActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lesson)
-        setUp(R.raw.alphabet1)
+        setUp(resources.getIdentifier(intent.action, "raw", packageName))
     }
 
-    fun setUp(setUpFile: Int){
+    private fun setUp(setUpFile: Int){
         //read all data from file
         val setUpData = resources.openRawResource(setUpFile)
         val reader = BufferedReader(InputStreamReader(setUpData, "Unicode"))
@@ -47,18 +45,14 @@ class LessonActivity : AppCompatActivity() {
 
             buttons.add(Button(this))
 
+            buttons[buttons.size - 1].textSize = 60F
             buttons[buttons.size - 1].text = word.word
             buttons[buttons.size - 1].setOnClickListener { word.playSound() }
             val ll = findViewById<LinearLayout>(R.id.words_wrapper)
-            val lp = LinearLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT,ConstraintLayout.LayoutParams.WRAP_CONTENT)
-            lp.topMargin = 50
-            lp.bottomMargin = 50
+            val lp = LinearLayout.LayoutParams(300,300)
+            lp.topMargin = 10
+            lp.bottomMargin = 10
             ll.addView(buttons[buttons.size - 1], lp)
         }
-
-
-        //testing - feed those words into buttons
-
-
     }
 }

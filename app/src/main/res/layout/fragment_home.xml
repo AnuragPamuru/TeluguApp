@@ -15,7 +15,7 @@
                 android:gravity="center"
                 android:id="@+id/lessons_wrapper" android:orientation="vertical">
             <Button
-                    android:id="@+id/push_button"
+                    android:id="@+id/alphabet1_lesson"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:background="@drawable/round_buttons"
@@ -23,9 +23,10 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
+                    android:text="Alphabet 1"
             />
             <Button
-                    android:id="@+id/push_button1"
+                    android:id="@+id/alphabet2_lesson"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:background="@drawable/round_buttons"
@@ -33,9 +34,10 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
+                    android:text="Alphabet 2"
             />
             <Button
-                    android:id="@+id/push_button2"
+                    android:id="@+id/alphabet3_lesson"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:background="@drawable/round_buttons"
@@ -43,9 +45,10 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
+                    android:text="Alphabet 3"
             />
             <Button
-                    android:id="@+id/push_button3"
+                    android:id="@+id/greetings_lesson"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:background="@drawable/round_buttons"
@@ -53,9 +56,10 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
+                    android:text="Greetings"
             />
             <Button
-                    android:id="@+id/push_button4"
+                    android:id="@+id/animals_lesson"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:background="@drawable/round_buttons"
@@ -63,9 +67,10 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
+                    android:text="Animals"
             />
             <Button
-                    android:id="@+id/push_button5"
+                    android:id="@+id/home_lesson"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:background="@drawable/round_buttons"
@@ -73,9 +78,10 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
+                    android:text="Home"
             />
             <Button
-                    android:id="@+id/push_button6"
+                    android:id="@+id/family__lesson"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:background="@drawable/round_buttons"
@@ -83,6 +89,51 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
+                    android:text="Family"
+            />
+            <Button
+                    android:id="@+id/food_lesson"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/round_buttons"
+                    android:padding="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    android:text="Food"
+            />
+            <Button
+                    android:id="@+id/activity_lesson"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/round_buttons"
+                    android:padding="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    android:text="Activities"
+            />
+            <Button
+                    android:id="@+id/directions"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/round_buttons"
+                    android:padding="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    android:text="Directions"
+            />
+            <Button
+                    android:id="@+id/nature_lesson"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/round_buttons"
+                    android:padding="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    android:text="Nature"
             />
         </LinearLayout>
     </ScrollView>

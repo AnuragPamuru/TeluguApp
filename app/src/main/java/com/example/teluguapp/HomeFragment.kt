@@ -19,10 +19,12 @@ class HomeFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         // Inflate the layout for this fragment
-        val button = view.findViewById(R.id.push_button) as Button
+        val button = view.findViewById(R.id.alphabet1_lesson) as Button
 
         button.setOnClickListener{
             val intent = Intent(activity, LessonActivity::class.java)
+            intent.action = "alphabet2"
+            println(button.id.toString())
             startActivity(intent)
         }
 
