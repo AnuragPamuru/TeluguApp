@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun buildNotificationReminder(){
         val calendar = Calendar.getInstance()
-        calendar.set(Calendar.HOUR_OF_DAY, calendar.)
+        calendar.set(Calendar.HOUR_OF_DAY, 2)
         calendar.set(Calendar.MINUTE,47)
 
         val intent = Intent(this, NotificationReceiver::class.java)
