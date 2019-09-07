@@ -1,5 +1,6 @@
 package com.example.teluguapp
 
+import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -10,10 +11,12 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
+import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,13 +27,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var homeScreen: HomeFragment
     private lateinit var searchScreen: SearchFragment
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         //notification setup
         createNotificationChannel()
-        buildNotification()
+        buildNotificationReminder()
 
         //initialize the navigation bar
         mFrame = findViewById(R.id.main_frame)
@@ -96,23 +100,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun buildNotification(){
-        //set notification intent
-        val intent = Intent(applicationContext, MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+    private fun buildNotificationReminder(){
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.HOUR_OF_DAY, calendar.)
+        calendar.set(Calendar.MINUTE,47)
 
-        //build notification
-        val builder = NotificationCompat.Builder(this, "com.example.teluguapp")
-            .setSmallIcon(R.drawable.ic_small_icon)
-            .setContentTitle("Come for a lesson!")
-            .setContentText("Your next lesson is Vowels")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setAutoCancel(true)
-            .setContentIntent(pendingIntent)
+        val intent = Intent(this, NotificationReceiver::class.java)
 
-        with(NotificationManagerCompat.from(this)) {
-            // notificationId is a unique int for each notification that you must define
-            notify(0, builder.build())
-        }
+        val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent)
     }
 }
