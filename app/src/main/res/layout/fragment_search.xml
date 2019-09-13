@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".SearchFragment">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:orientation="horizontal"
+                                                   tools:context=".SearchFragment">
 
     <EditText
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_width="365dp"
+            android:layout_height="46dp"
             android:inputType="textPersonName"
-
             android:ems="10"
-            android:hint="Eyyyy what's good"
-            android:id="@+id/editText"/>
-</FrameLayout>
+            android:hint="@string/search"
+            android:id="@+id/searchBar" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+    />
+    <ImageButton
+            android:src="@drawable/ic_search"
+            android:scaleType="fitXY"
+            android:layout_width="46dp"
+            android:layout_height="46dp" android:id="@+id/search_button"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/search"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
