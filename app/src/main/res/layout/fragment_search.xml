@@ -5,4 +5,12 @@
              android:layout_height="match_parent"
              tools:context=".SearchFragment">
 
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:inputType="textPersonName"
+
+            android:ems="10"
+            android:hint="Eyyyy what's good"
+            android:id="@+id/editText"/>
 </FrameLayout>
