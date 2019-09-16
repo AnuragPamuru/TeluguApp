@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.LinearLayout
 
 
 class SearchFragment : Fragment() {
@@ -31,6 +33,22 @@ class SearchFragment : Fragment() {
     private fun runSearchEngine() {
         val editText = activity?.findViewById(R.id.searchBar) as EditText
         searchString = editText.text.toString()
-        println(searchString)
+
+        val searchResults = DatabaseHandler().searchResults(searchString)
+
+        val buttons = mutableListOf<Button>()
+
+        //use each line to set up words
+        for(i in searchResults){
+
+            buttons.add(Button(context))
+
+
+            val ll = activity?.findViewById(R.id.search_results_wrapper) as LinearLayout
+            val lp = LinearLayout.LayoutParams(300,300)
+            lp.topMargin = 10
+            lp.bottomMargin = 10
+            ll.addView(buttons[buttons.size - 1], lp)
+        }
     }
 }

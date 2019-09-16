@@ -8,19 +8,35 @@
                                                    tools:context=".SearchFragment">
 
     <EditText
-            android:layout_width="365dp"
-            android:layout_height="46dp"
+            android:layout_width="354dp"
+            android:layout_height="55dp"
             android:inputType="textPersonName"
             android:ems="10"
             android:hint="@string/search"
             android:id="@+id/searchBar" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-    />
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/search_button"
+            android:layout_marginRight="8dp" app:layout_constraintHorizontal_bias="0.0"/>
     <ImageButton
             android:src="@drawable/ic_search"
             android:scaleType="fitXY"
-            android:layout_width="46dp"
-            android:layout_height="46dp" android:id="@+id/search_button"
+            android:layout_width="56dp"
+            android:layout_height="56dp" android:id="@+id/search_button"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/search"/>
+    <ScrollView
+            android:layout_width="412dp"
+            android:gravity="center"
+            android:layout_height="674dp" android:id="@+id/scroll_area"
+            app:layout_constraintTop_toBottomOf="@+id/searchBar" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintStart_toStartOf="parent">
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/search_results_wrapper"
+                android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
